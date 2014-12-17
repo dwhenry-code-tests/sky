@@ -4,7 +4,9 @@ describe Rewards::App do
   subject { described_class.new('123', ['SPORTS', 'MOVIES']) }
 
   it 'raises an error if the account number is not a valid format' do
-    pending 'Need to get specification on account format first'
+    pending 'Need to get specification on account format'
+    # https://relishapp.com/rspec/rspec-core/v/3-0/docs/pending-and-skipped-examples/pending-examples#`pending`-any-arbitrary-reason-with-a-failing-example
+    fail
   end
 
   it 'checks the account is eligible for rewards' do
