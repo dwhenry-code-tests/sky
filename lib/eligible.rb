@@ -24,6 +24,7 @@ module Eligible
     URI("http://#{config['DOMAIN']}/eligible/#{account}")
   end
 
+  # TODO: move config into it own class when moved to gem
   def config
     @config ||= YAML.load(File.read(CONFIG_PATH))
   end

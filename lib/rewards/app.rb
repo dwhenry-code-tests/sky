@@ -10,6 +10,7 @@ module Rewards
     def rewards
       if eligible?
         current = Rewards.current
+
         @portfolio.map do |channel|
           current[channel]
         end.compact

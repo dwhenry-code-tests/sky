@@ -1,6 +1,6 @@
 require 'sinatra'
 
-$LOAD_PATH << './'
+$LOAD_PATH << './lib'
 require 'rewards'
 
 class RewardsApp < Sinatra::Base
