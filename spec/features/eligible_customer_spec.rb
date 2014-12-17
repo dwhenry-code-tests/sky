@@ -6,7 +6,7 @@ describe 'Eligible customer' do
   end
 
   it 'returns the rewards the customer is entitled to' do
-    allow(Eligible).to receive(:check).and_return(true)
+    stub_request(:get, %r{.*/eligible/1234}).to_return(body: 'CUSTOMER_ELIGIBLE')
 
     get '/rewards/1234?portfolio=SPORTS'
     expect(last_response).to be_ok

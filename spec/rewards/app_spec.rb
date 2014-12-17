@@ -7,14 +7,14 @@ describe Rewards::App do
   it 'raises an error if the portfolio is not an array of channels'
 
   it 'checks the account is eligible for rewards' do
-    expect(Eligible).to receive(:check).with('123')
+    expect(Eligible).to receive(:check?).with('123')
 
     subject.rewards
   end
 
   context 'when account is eligible for rewards' do
     before do
-      allow(Eligible).to receive(:check).and_return(true)
+      allow(Eligible).to receive(:check?).and_return(true)
     end
 
     it 'gets the current rewards for the portfolio' do
@@ -26,7 +26,7 @@ describe Rewards::App do
 
   context 'when account is not eligible for rewards' do
     before do
-      allow(Eligible).to receive(:check).and_return(false)
+      allow(Eligible).to receive(:check?).and_return(false)
     end
 
     it 'returns an empty array of rewards' do
@@ -36,7 +36,7 @@ describe Rewards::App do
 
   context 'when the account is invalid' do
     before do
-      allow(Eligible).to receive(:check).and_raise(Eligible::InvalidAccount)
+      allow(Eligible).to receive(:check?).and_raise(Eligible::InvalidAccount)
     end
 
     it 'raise a Rewards::InvalidAccount error' do
@@ -48,7 +48,7 @@ describe Rewards::App do
 
   context 'when any other error is returned from the eligible interface' do
     before do
-      allow(Eligible).to receive(:check).and_raise(StandardError)
+      allow(Eligible).to receive(:check?).and_raise(StandardError)
     end
 
     it 'returns an empty array of rewards' do

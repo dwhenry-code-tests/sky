@@ -21,7 +21,7 @@ module Rewards
     private
 
     def eligible?
-      Eligible.check(@account)
+      Eligible.check?(@account)
     rescue Eligible::InvalidAccount
       raise Rewards::InvalidAccount
     rescue
