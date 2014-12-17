@@ -1,0 +1,3 @@
+module Rewards
+
+end
