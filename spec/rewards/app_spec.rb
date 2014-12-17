@@ -3,8 +3,9 @@ require 'spec_helper'
 describe Rewards::App do
   subject { described_class.new('123', ['SPORTS', 'MOVIES']) }
 
-  it 'raises an error if the account number is not a valid format'
-  it 'raises an error if the portfolio is not an array of channels'
+  it 'raises an error if the account number is not a valid format' do
+    pending 'Need to get specification on account format first'
+  end
 
   it 'checks the account is eligible for rewards' do
     expect(Eligible).to receive(:check?).with('123')
